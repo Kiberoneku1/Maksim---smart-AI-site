@@ -1,0 +1,265 @@
+/* static/style.css */
+
+/* Сброс и базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #0b0e1a;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    padding: 20px;
+    background-image: radial-gradient(circle at 10% 20%, rgba(30, 45, 80, 0.4) 0%, transparent 50%),
+                      radial-gradient(circle at 90% 80%, rgba(100, 40, 120, 0.3) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Основной контейнер — стилизованная карточка */
+form {
+    background: rgba(18, 24, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 32px;
+    padding: 40px 36px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Заголовок (пустой в вашем коде, но стилизован на будущее) */
+h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c084fc, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+/* Подзаголовок (пустой в вашем коде) */
+p {
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+/* Лейбл */
+label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    margin-bottom: 14px;
+    letter-spacing: 0.2px;
+    background: linear-gradient(90deg, #a78bfa, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Текстовое поле */
+textarea {
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 14, 30, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #f1f5f9;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 130px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #818cf8;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2), inset 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Кнопка отправки */
+button[type="submit"] {
+    margin-top: 24px;
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 24px -6px rgba(79, 70, 229, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #a78bfa, #6366f1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 12px 32px -6px rgba(79, 70, 229, 0.6);
+}
+
+button[type="submit"]:hover::before {
+    opacity: 1;
+}
+
+button[type="submit"] span {
+    position: relative;
+    z-index: 1;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Блок с результатом */
+.result {
+    margin-top: 32px;
+    padding: 24px 28px;
+    background: rgba(18, 24, 42, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    border-left: 4px solid #818cf8;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.result h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #a5b4fc;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.result h3::before {
+    content: '✦';
+    font-size: 1.4rem;
+    color: #818cf8;
+}
+
+.result p {
+    color: #e2e8f0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+    font-weight: 400;
+    background: none;
+    -webkit-text-fill-color: #e2e8f0;
+    word-wrap: break-word;
+}
+
+/* Анимация появления */
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 640px) {
+    form {
+        padding: 28px 20px;
+        border-radius: 24px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    textarea {
+        min-height: 110px;
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    button[type="submit"] {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .result {
+        padding: 18px 20px;
+    }
+
+    .result p {
+        font-size: 0.98rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+}
+
+/* Дополнительная стилизация для пустых элементов, чтобы они не занимали место */
+h1:empty,
+p:empty {
+    display: none;
+}
+
+/* Для скроллбара (опционально) */
+textarea::-webkit-scrollbar {
+    width: 6px;
+}
+textarea::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+}
+textarea::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 8px;
+}
